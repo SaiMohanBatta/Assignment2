@@ -11,6 +11,10 @@ def Plot_Line(path_to_file):
     # The columns of years start from the 3rd column.
     years = data.columns[1:]
 
+    # Describe the dataset to get summary statistics
+    print("Summary Statistics:")
+    print(data.describe())
+
     # Create a line plot with multiple lines based on the number of countries
     plt.figure(figsize=(10, 6))
     for idx in range(len(country_codes)):
@@ -27,6 +31,15 @@ def Plot_Line(path_to_file):
 
     # Display the plot after generating
     plt.show()
+
+    # Additional statistical information
+    print("\nAdditional Statistics:")
+    for country_code in country_codes:
+        country_data = data[data['Country Name'] == country_code].iloc[:, 1:]
+        print(f"\nStatistics for {country_code}:")
+        print(f"Mean: {country_data.mean(axis=1).values[0]}")
+        print(f"Median: {country_data.median(axis=1).values[0]}")
+        print(f"Standard Deviation: {country_data.std(axis=1).values[0]}")
 
 # Calling the function to generate the Line Plot
 path_to_file = 'AgriLand.csv'
