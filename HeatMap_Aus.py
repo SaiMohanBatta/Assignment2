@@ -52,6 +52,7 @@ def plot_heatmap(file_path, indicators):
         kurt = kurtosis(ind_data[i])
         print(f"{ind_data}: {kurt:.4f}")
 
+
 #filename of CSV file
 file_path = 'AusData.csv'
 
